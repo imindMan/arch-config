@@ -1,4 +1,7 @@
 # arch-config
+
+<img src=".\setup.png" alt="Setup">
+
 My beautiful arch configuration.
 
 Uh, because I don't know how to setup the Git LFS so I think you can handle it by using the .tar file.
