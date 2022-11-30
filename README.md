@@ -37,6 +37,8 @@ terminal: `sudo pacman -S kitty`
 
 terminal-config: manually I read the tutorial here [Tutorial](https://www.linuxfordevices.com/tutorials/linux/make-arch-terminal-awesome)
 
+terminal-theme: i use this package [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)
+
 search-engine: `sudo pacman -S rofi`
 
 picom: `sudo pacman -S picom`. Note: if you use Virtual Machine, just keep my settings. But if you use real machine, be sure to change the vsync variable in the ~/.config/picom/picom.conf to true. Also, create a ~/.xprofile file and add this line `picom -f &`
