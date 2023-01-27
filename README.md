@@ -14,7 +14,7 @@ Take a quick look to the [text.txt](https://github.com/imindMan/arch-config/blob
 
 Copy that link and download the .tar file from Google Drive. 
 
-Unzip it by using: `tar –xvzf config.tar` and then replace the output folder to the ~/.config directory
+Unzip it by using: `tar –xf config.tar` and then replace the output folder to the ~/.config directory
 
 Move on to extra installation
 
@@ -23,7 +23,9 @@ Qtile: `sudo pacman -S qtile lxappearance lightdm lightdm-gtk-greeter`. After in
 
 Nerd-font: `sudo pacman -S ttf-hack-nerd` then `cd /usr/share/fonts/TTF` then `fc-cache -fv` 
 
-Text editor: `sudo pacman -S neovim nano mousepad neovide`
+Text editor: `sudo pacman -S neovim nano mousepad neovide sqlitebrowser`
+
+Typing keys: `sudo pacman -S ibus`. Also `ibus-bamboo` because I type in vietnamese!
 
 Htop: `sudo pacman -S htop`
 
@@ -35,15 +37,17 @@ sound system: `sudo pacman -S alsa-utils`
 
 terminal: `sudo pacman -S kitty`
 
-terminal-config: manually I read the tutorial here [Tutorial](https://www.linuxfordevices.com/tutorials/linux/make-arch-terminal-awesome)
+starship: `sudo pacman -S starship`. My starship configuration is just another "update" of the tokyo-night preset that fits my own taste
 
-terminal-theme: i use this package [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes)
-
+terminal-theme: i use this package [dexpota/kitty-themes](https://github.com/dexpota/kitty-themes). You don't have to manual configure the theme again, because I already did that!
+ 
 search-engine: `sudo pacman -S rofi`
 
-picom: `sudo pacman -S picom`. Note: if you use Virtual Machine, just keep my settings. But if you use real machine, be sure to change the vsync variable in the ~/.config/picom/picom.conf to true. Also, create a ~/.xprofile file and add this line `picom -f &`
+picom: `yay -S picom-ibhagwan-git`. Note: if you use Virtual Machine, just keep my settings. But if you use real machine, be sure to change the vsync variable in the ~/.config/picom/picom.conf to true.
 
-extra: `sudo pacman -S python python-pip nodejs` and `pip install psutil`
+music-player: `sudo pacman -S mpd ncmpcpp`. Also `sudo pacman -S tty-clock` for extra personality.
+
+extra: `sudo pacman -S python python-pip nodejs shutter obs-studio mplayer` and `pip install psutil`
 
 my wallpaper: [Wallpaper](https://images8.alphacoders.com/749/749455.png)
 
