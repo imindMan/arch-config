@@ -47,7 +47,7 @@ picom: `yay -S picom-ibhagwan-git`. Note: if you use Virtual Machine, just keep 
 
 music-player: `sudo pacman -S mpd ncmpcpp`. Also `sudo pacman -S tty-clock` for extra personality.
 
-extra: `sudo pacman -S python python-pip nodejs shutter obs-studio mplayer` and `pip install psutil`
+extra: `sudo pacman -S python python-pip nodejs shutter obs-studio mplayer` and `pip install psutil poetry`
 
 my wallpaper: [Wallpaper](https://images8.alphacoders.com/749/749455.png)
 
