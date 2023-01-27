@@ -1,6 +1,6 @@
 # arch-config
 
-<img src=".\better_setup.png" alt="Setup">
+<img src=".\setup.png" alt="Setup">
 
 My beautiful arch configuration. Nord-theme inspired.
 
