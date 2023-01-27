@@ -1,1 +1,11 @@
 https://drive.google.com/file/d/1Q3Q7UtQOG6OKfNAewQ_dAl85gMud8qQ6/view?usp=sharing
+
+
+Note:
+	Extra personality if you prefer:
+		- Transparency bar: set the background color to the #00000000 (alpha code in hex)
+		- Cleaner neofetch: edit the $XDG_CONFIG_HOME/neofetch/config.conf
+		- Also if you don't like to set up something, just remove it :))) (wish you can btw)
+	I use Arch, that's why this setup may not work on other machine
+	I cannot use glx because it's laggy. That's why my rounded window seems kinda ugly.
+	And also, nothing special anyway
