@@ -2,7 +2,7 @@
 
 <img src=".\better_setup.png" alt="Setup">
 
-My beautiful arch configuration.
+My beautiful arch configuration. Nord-theme inspired.
 
 Uh, because I don't know how to setup the Git LFS so I think you can handle it by using the .tar file.
 
