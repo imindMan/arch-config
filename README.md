@@ -1,3 +1,3 @@
 # My beautiful arch configuration
 
-[](./setup.png)
+![](https://github.com/imindMan/arch-config/blob/master/setup.png)
