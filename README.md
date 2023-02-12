@@ -14,7 +14,11 @@ Table of content:
      + [Text editor](#text-editor)
      + [Window compositor](#compositor)
      + [Cool terminal](#cool-terminal)
+     + [Font](#font)
      + [Fun stuff](#fun-stuff)
+     + [Extra](#extra)
+     + [Final configuration](#final)
+  - [Contribution](#contribution)
 
 <h1 id="preview">Preview</h1>
 
@@ -93,6 +97,10 @@ Also, change `vsync = true`, `backend=glx`, and `experimental-backend=true` if y
 
 Starship probably so good!!!!! `sudo pacman -S starship`
 
+<h2 id="font">Font</h2>
+
+I'm a big fan of hack nerd font `sudo pacman -S ttf-hack-nerd`
+
 <h2 id="fun-stuff">Fun</h2>
 
 I use ncmpcpp, mpd, and cava for music stuff `sudo pacman -S mpd ncmpcpp` and `yay -S cava`
@@ -104,3 +112,32 @@ Clock: `yay -S tty-clock`
 Bonsai tree: `yay -S cbonsai-git`
 
 Cool over-engineered: `cargo install --git https://github.com/lhvy/pipes-rs`
+
+<h2 id="extra">Extra</h2>
+
+`sudo pacman -S python python-pip nodejs obs-studio shutter rust` and `pip install psutil`
+
+<h2 id="final">Final configuration</h2>
+
+Clone the config repository to ~/.config.
+
+```bash
+git clone https://github.com/imindMan/arch-config.git
+mv ~/arch-config/config ~/.config
+```
+
+Edit some files and install some packages as you want to.
+
+Setting up the .bashrc and .xprofile
+
+```bash
+mv ~/arch-config/.bashrc ~/arch-config/.xprofile ~
+```
+
+And now, you can use this setup as you want to!
+
+<h2 id="contribution">Contribution</h2>
+
+If you want to contribute to this project, just fork them locally in your github and make a pr. Also you can make some issues if you want to.
+
+I will consider all your help
