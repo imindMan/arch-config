@@ -94,5 +94,6 @@ Also, change `vsync = true`, `backend=glx`, and `experimental-backend=true` if y
 Starship probably so good!!!!! `sudo pacman -S starship`
 
 <h2 id="fun-stuff">Fun</h2>
+
 I use ncmpcpp, mpd, and cava for music stuff `sudo pacman -S mpd ncmpcpp` and `yay -S cava`
 
