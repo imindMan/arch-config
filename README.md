@@ -145,7 +145,7 @@ I will consider all your help
 
 <h2 id="inspiration">Inspiration</h2>
 
-This setup is inspired by a lot of cool setups in r/unixporn and other linux rice complication videos on Youtube.
+This setup is inspired by a lot of cool setups in r/unixporn and other linux rice compilation videos on Youtube.
 
 Qtile theme settings: inspired by The Linux Cast and DistroTube.
 
