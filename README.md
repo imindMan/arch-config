@@ -97,3 +97,10 @@ Starship probably so good!!!!! `sudo pacman -S starship`
 
 I use ncmpcpp, mpd, and cava for music stuff `sudo pacman -S mpd ncmpcpp` and `yay -S cava`
 
+Further installation you can read on the official wiki.
+
+Clock: `yay -S tty-clock`
+
+Bonsai tree: `yay -S cbonsai-git`
+
+Cool over-engineered: `cargo install --git https://github.com/lhvy/pipes-rs`
