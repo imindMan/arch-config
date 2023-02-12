@@ -19,6 +19,7 @@ Table of content:
      + [Extra](#extra)
      + [Final configuration](#final)
   - [Contribution](#contribution)
+  - [Inspiration](#inspiration)
 
 <h1 id="preview">Preview</h1>
 
@@ -141,3 +142,15 @@ And now, you can use this setup as you want to!
 If you want to contribute to this project, just fork them locally in your github and make a pr. Also you can make some issues if you want to.
 
 I will consider all your help
+
+<h2 id="inspiration">Inspiration</h2>
+
+This setup is inspired by a lot of cool setups in r/unixporn and other linux rice complication videos on Youtube.
+
+Qtile theme settings: inspired by The Linux Cast and DistroTube.
+
+A lot of cool stuff is inspired by [ACE] and flick0
+
+Picom animations is inspired by Eden Lee and Zaney.
+
+And some of my friends in the Virbox discord server also! ![Virbox discord](https://discord.gg/a6kD6WT97p)
