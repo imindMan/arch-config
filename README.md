@@ -153,4 +153,4 @@ A lot of cool stuff is inspired by [ACE] and flick0
 
 Picom animations is inspired by Eden Lee and Zaney.
 
-And some of my friends in the Virbox discord server also! ![Virbox discord](https://discord.gg/a6kD6WT97p)
+And some of my friends in the Virbox discord server also! [Virbox discord](https://discord.gg/a6kD6WT97p)
