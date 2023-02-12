@@ -1,3 +1,4 @@
 config filter=lfs diff=lfs merge=lfs -text
 README.md filter=lfs diff=lfs merge=lfs -text
 setup.png filter=lfs diff=lfs merge=lfs -text
+startup_script filter=lfs diff=lfs merge=lfs -text
