@@ -132,7 +132,7 @@ Edit some files and install some packages as you want to.
 Setting up the .bashrc and .xprofile
 
 ```bash
-mv ~/arch-config/.bashrc ~/arch-config/.xprofile ~
+mv ~/arch-config/startup_script/.bashrc ~/arch-config/startup_script/.xprofile ~
 ```
 
 And now, you can use this setup as you want to!
