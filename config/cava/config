@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8f5ca23b03bca79f40d52b5c99fd3116ae7f91eb6905648fece025aeb5be70e7
-size 204
+# CAVA configuration by imindMan
+# Author: imindMan
+
+[input]
+
+
+method = fifo
+source = /tmp/mpd.fifo
+sample_rate = 44100
+sample_bits = 16
+
+
+[color]
+
+background = default
+foreground = blue
+
+
+gradient = 0 
+
