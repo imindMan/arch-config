@@ -1,5 +1,7 @@
 # Arch configuration
-
+<div align="center">
+  <img src="assets/rice.png" />
+</div>
 ## Showcase
 
 ### Dirty look
