@@ -23,6 +23,6 @@ Assuming that you have an empty Arch. Haven't tested it yet in real life.
 
 All the needed packages:
 ```
-bspwm, sxhkd, sddm, grub, nitrogen, lxsession, ibus-bamboo, picom, eww, python, lua, rust (rustup, cargo), btop, cava, dunst, ncmpcpp, mpd, fish, kitty, neofetch, maxfetch, neovim, ranger, rofi.  
+bspwm, sxhkd, sddm, grub, nitrogen, lxsession, ibus-bamboo, picom, eww, python, lua, rust (rustup, cargo), btop, cava, dunst, ncmpcpp, mpd, fish, kitty, neofetch, maxfetch, neovim, ranger, rofi, starship
 ```
 
