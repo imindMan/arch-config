@@ -1,0 +1,148 @@
+// Main colors 
+$background: #242636;
+$foreground: #a9b1d6;
+$black: #414868;
+$red: #f7768e;
+$green: #73daca;
+$yellow: #e0af68;
+$blue: #7aa2f7;
+$magenta: #bb9af7;
+$cyan: #7dcfff;
+$white: #c0caf5;
+$selected_background: #28344a;
+$light_green: #9ece6a;
+$dark: #33467c;
+
+
+*{
+  all: unset;
+  border-radius: 25px;
+  background-color: $background; 
+}
+
+.works {
+	font-size: 23px;
+	color: $black;
+	padding: 3px 3px 2px 16px; 
+}
+
+.uof, .uf {
+	color: $blue;
+}
+
+
+
+.interface {
+	color: $cyan;
+	padding: 3px 3px 3px 5px;
+}
+
+.mem {
+	color: $yellow;
+}
+
+.time {
+	color: $cyan;
+}
+
+.distro {
+	padding: 2px 2px 2px 20px;
+	color: $blue;
+}
+.info {
+	color: $cyan;
+}
+.temperature {
+	color: $yellow;
+	padding-left: 10px;
+
+}
+
+.logo {
+	color: $blue;
+	font-size: 50px;
+	padding: 3px 5px 3px 15px;
+}
+
+.powermenu {
+	color: $red;
+}
+
+.bio {
+	color: $cyan;
+	padding: 0px 10px 0px 10px;
+}
+.status {
+	color: $light_green;
+}
+.status_win {
+	color: $light_green;
+	padding: 0px 10px 0px 20px;
+}
+
+.logout {
+	color: $yellow;
+}
+.reboot {
+	color: $light_green;
+}
+.lock {
+	color: $cyan;
+
+}
+.shutdown {
+	color: $red;
+}
+
+.cal {
+  background-color: $background;
+  font-family: Hack Nerd Font;
+  font-size: 18px;
+  font-weight: normal;
+
+.cal-in {
+    padding: 0px 10px 0px 10px;
+    color: $white;
+
+.cal {
+     &.highlight {
+          padding: 20px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+    }
+  }
+}
+
+calender {
+    color: $background;
+}
+calendar:selected {
+  color: $selected_background;
+}
+
+calendar.header {
+color:$white;
+font-weight: bold;
+}
+
+calendar.button {
+color: $white;
+}
+
+calendar.highlight {
+color: $blue;
+font-weight: bold;
+}
+
+calendar:indeterminate {
+color: $white;
+}
+
+
+.progress {
+	all: unset;
+	color: $white;
+	background-color: $background;
+}

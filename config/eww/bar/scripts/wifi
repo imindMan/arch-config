@@ -1,0 +1,21 @@
+#!/bin/bash 
+status=$(nmcli g | grep -oE "disconnected")
+net_in=$(ifconfig -a | head -n1 | awk '{print $1;}')
+
+if [[ $status ]] ; then 
+	icon="  󰤭   "
+	col="#f7768e"
+
+else 
+	icon="  󰤨   "
+	col="#7aa2f7"
+fi
+
+
+if [[ "$1" == "--INTERFACE" ]]; then
+    echo ${net_in::-1}	
+elif [[ "$1" == "--ICON" ]]; then
+	echo $icon
+elif [[ "$1" == "--COLOR" ]]; then
+	echo $col
+fi
