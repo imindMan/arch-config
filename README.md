@@ -1,3 +1,5 @@
 # My arch configuration
 
-![title](rice.png)
+<div align="center">
+  <img src="./rice.png" />
+</div>
