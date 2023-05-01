@@ -2,9 +2,13 @@
 <div align="center">
   <img src="assets/rice.png" />
 </div>
-# Showcase
 
-### Dirty look
+# Showcase
+## Clean look
+<div align="center">
+  <img src="assets/clean.png" />
+</div>
+## Dirty look
 <div align="center">
   <img src="assets/dirty_1.png" />
   <img src="assets/dirty_2.png" />
