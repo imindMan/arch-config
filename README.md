@@ -8,6 +8,7 @@
 <div align="center">
   <img src="assets/clean.png" />
 </div>
+
 ## Dirty look
 <div align="center">
   <img src="assets/dirty_1.png" />
