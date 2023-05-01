@@ -1,0 +1,71 @@
+#!/bin/bash
+
+behaviour="${4:-i3}"
+
+# match window title and class
+id=$(wmctrl -lx|grep "${1}"|awk '{ print $1 }')
+
+# stop execution if theres no matches
+if [ -z "$id" ] && ! [ -z "$2" ]; then
+    ${2}
+    exit
+fi
+
+id=$(cat <<< "$id"|cat|grep -iU "$(bspc query -N -n .floating||echo %@)")
+
+rawindex=$(cat <<< "$id"|cat -n|grep -iU "$(bspc query -N -n .focused.floating||echo %@)")
+
+
+idmarkded=$(cat <<< "$id"|rg -i "$(echo "$(bspc query -N -n .hidden.marked.window||echo "%@#")"|sed -z 's/\n\(\w\)/|\1/g')")
+
+if [ "$behaviour" != "nomark" ];then
+    # show the marked hidden window
+    if ! [ -z "$idmarkded" ];then
+        bspc node $(cat <<< "$idmarkded"|head -n 1) --flag hidden=off --to-monitor focused --focus
+        exit
+    fi
+fi
+
+
+# index of the first matched visible window 
+index=$(cat <<< "$id"|cat -n|rg -i "$(bspc query -N -n .!hidden.window|sed -z 's/\n\(\w\)/|\1/g')"|head -n 1|awk '{print $1}')
+
+idhidden=$(cat <<< "$id"|cat -n|rg -i "$(bspc query -N -n .hidden.window|sed -z 's/\n\(\w\)/|\1/g')")
+
+
+# hide matched windows that are visible
+idnothidden=$(cat <<< "$id"|rg -i "$(bspc query -N -n .!hidden.window|sed -z 's/\n\(\w\)/|\1/g')")
+
+cat <<< "$idnothidden"|xargs -i bspc node {} --flag hidden=on 
+
+# keep the window stack position if the window loses focus
+if [ -z "$rawindex" ] && ! [ -z "$idnothidden" ] && [ "$behaviour" != "nomark" ];then
+    exit
+fi
+
+# remove the mark of all matched visible windows
+cat <<< "$id"|xargs -i bspc node {} --flag marked=off 
+
+
+nextindex=$(($index+1))
+filtered=$(cat <<< "$idhidden"|awk -v nextindex="$nextindex" '$1 >= nextindex {print $2}')
+# filtered=$(cat <<< "$idhidden"|sed "${nextindex}q;d"|awk '{ print $2 }')
+
+if [ "$behaviour" == "i3" ]; then
+    # if the focused window is matched, then mark the next matched window and hide the current one
+    if ! [ -z "$rawindex" ];then
+        bspc node $(cat <<< "$rawindex"|awk '{print $2}') --flag marked=off 
+        bspc node "$(cat <<< "$filtered"|head -n 1)" --flag marked=on
+        exit
+    fi
+fi
+
+if ! [ -z "$rawindex" ] || [ -z "$idnothidden" ];then
+    if [ "$behaviour" != "nomark" ];then
+        # mark and show the matched window 
+        bspc node "$(cat <<< "$filtered"|head -n 1)" --flag hidden  --flag marked=on --to-monitor focused --focus
+    else
+        # show the matched window 
+        bspc node "$(cat <<< "$filtered"|head -n 1)" --flag hidden  --to-monitor focused --focus
+    fi
+fi
