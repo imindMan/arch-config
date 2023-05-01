@@ -28,8 +28,8 @@ bspwm, sxhkd, sddm, grub, nitrogen, lxsession, ibus-bamboo, picom, eww, python, 
 
 All of the above packages are always available on pacman and aur.
 
-After installing all of them, you can clone this repo locally, and apply it to your .config/ directory. Note that this config assumes that your $XDG_CONFIG_HOME is ~/.config.
+After installing all of them, you can clone this repo locally, and apply it to your .config/ directory (for grub configuration: /boot/ directory). Note that this config assumes that your $XDG_CONFIG_HOME is ~/.config.
 
-Bonus: I have some "custom themes" (sddm, grub), you can check it out here: [SDDM SUGAR CANDY THEME](https://github.com/imindMan/sddm-sugar-candy). 
+Bonus: I have some "custom themes" (sddm), you can check it out here: [SDDM SUGAR CANDY THEME](https://github.com/imindMan/sddm-sugar-candy). 
 
 And finally, (fix some bugs), enjoy :)))))
