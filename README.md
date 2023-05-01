@@ -28,4 +28,4 @@ bspwm, sxhkd, sddm, grub, nitrogen, lxsession, ibus-bamboo, picom, eww, python, 
 
 After installing all of them, you can clone this repo locally, and apply it to your .config/ directory. Note that this config assumes that your $XDG_CONFIG_HOME is ~/.config
 
-And finally, (fix some bugs), and enjoy :)))))
+And finally, (fix some bugs), enjoy :)))))
