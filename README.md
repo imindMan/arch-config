@@ -1,9 +1,11 @@
 # Arch configuration
-
-## Showcase
+<div align="center">
+  <img src="assets/rice.png" />
+</div>
+# Showcase
 
 ### Dirty look
-<div>
+<div align="center">
   <img src="assets/dirty_1.png" />
   <img src="assets/dirty_2.png" />
   <img src="assets/dirty_3.png" />
