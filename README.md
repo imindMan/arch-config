@@ -2,7 +2,7 @@
 <div align="center">
   <img src="assets/rice.png" />
 </div>
-## Showcase
+# Showcase
 
 ### Dirty look
 <div align="center">
