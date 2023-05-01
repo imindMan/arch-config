@@ -5,7 +5,7 @@
 ## Showcase
 
 ### Dirty look
-<div>
+<div align="center">
   <img src="assets/dirty_1.png" />
   <img src="assets/dirty_2.png" />
   <img src="assets/dirty_3.png" />
