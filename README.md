@@ -26,6 +26,8 @@ All the needed packages:
 bspwm, sxhkd, sddm, grub, nitrogen, lxsession, ibus-bamboo, picom, eww, python, lua, rust (rustup, cargo), btop, cava, dunst, ncmpcpp, mpd, fish, kitty, neofetch, maxfetch, neovim, ranger, rofi, starship, metar, alsamixer, networkmanager, ttf-hack-nerd
 ```
 
+All of the above packages are always available on pacman and aur.
+
 After installing all of them, you can clone this repo locally, and apply it to your .config/ directory. Note that this config assumes that your $XDG_CONFIG_HOME is ~/.config
 
 And finally, (fix some bugs), enjoy :)))))
