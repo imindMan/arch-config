@@ -2,6 +2,7 @@
 *all_functional_test: functional_test
 *background_image: gfxterm_background
 *cat: cat
+*cmp: cmp
 *cpuid: cpuid
 *crc: hashsum
 *cryptomount: cryptodisk
@@ -34,6 +35,7 @@
 *md5sum: hashsum
 *menuentry: normal
 *pcidump: pcidump
+*plainmount: plainmount
 *plan9: plan9
 *probe: probe
 *rdmsr: rdmsr
@@ -82,7 +84,6 @@ cmosclean: cmostest
 cmosdump: cmosdump
 cmosset: cmostest
 cmostest: cmostest
-cmp: cmp
 configfile: configfile
 continue: normal
 coreboot_boottime: cbtime
