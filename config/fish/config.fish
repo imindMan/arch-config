@@ -13,4 +13,8 @@ alias fls='ls | lolcat'
 alias clock='tty-clock -s -S -c -C 4'
 alias music='ncmpcpp'
 
-
+alias ls="exa"
+alias vim="nvim"
+~/.config/bspwm/random.sh
+#colorscript random
+#pokemon-colorscripts --no-title -r
