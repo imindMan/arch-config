@@ -6,45 +6,40 @@ vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
-require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
-      view = {
-        centralize_selection = false,
-        hide_root_folder = true,
-        side = "left",
-        float = {
-          enable = true,
-          quit_on_focus_loss = true,
-          open_win_config = {
-            relative = "editor",
-            border = "rounded",
-            width = 30,
-            height = 50,
-            row = 1,
-            col = 1,
-          },
-        },
-      },
-      renderer = {
-        add_trailing = false,
-        group_empty = true,
-        highlight_git = true,
-        indent_markers = {
-          enable = true,
-          inline_arrows = true,
-          icons = {
-            corner = "└",
-            edge = "│",
-            item = "│",
-            bottom = "─",
-            none = " ",
-          },
-        },
-	}
-} -- END_DEFAULT_OPTS
+require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
+	view = {
+		centralize_selection = false,
+		hide_root_folder = false,
+		side = "left",
+		float = {
+			enable = true,
+			quit_on_focus_loss = true,
+			open_win_config = {
+				relative = "editor",
+				border = "rounded",
+				width = 30,
+				height = 50,
+				row = 1,
+				col = 1,
+			},
+		},
+	},
+	renderer = {
+		add_trailing = false,
+		group_empty = true,
+		highlight_git = true,
+		indent_markers = {
+			enable = true,
+			inline_arrows = true,
+			icons = {
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
+			},
+		},
+	},
+}) -- END_DEFAULT_OPTS
 -- keymap
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>fb",
-  ":NvimTreeToggle",
-  { noremap = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>fb", ":NvimTreeToggle<CR>", { noremap = true })
