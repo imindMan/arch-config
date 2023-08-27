@@ -1,0 +1,20 @@
+#!/bin/fish
+
+i3lock -i ~/Pictures/anime-night-scenery.jpg -F -b -e -k \
+		--radius 100 \
+		--ring-width 10 \
+		--ring-color=7aa2f7 --inside-color=1a1b26 \
+		--ringver-color=73daca --insidever-color=1a1b26 \
+		--ringwrong-color=f7768e --insidewrong-color=1a1b26 \
+		--line-color=7dcfff \
+		--keyhl-color=7dcfff \
+		--bshl-color=f7768e \
+		--{verif, wrong, modif}-color=7dcfff --{layout, time, date, greeter}-color=7dcfff \
+		--time-str="%H:%M" \
+		--date-str="Nothing special" \
+		--verif-text="Verify" \
+		--wrong-text="Wrong" \
+		--noinput-text="Empty" \
+		--lock-text="Lock" \
+		--{time, date, layout, verif, wrong, greeter}-font="Hack Nerd Font"
+

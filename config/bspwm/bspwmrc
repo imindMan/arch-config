@@ -10,7 +10,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
-eww -c ~/.config/eww/bar/ open bar
+~/.config/eww/bar/launch_bar 
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
