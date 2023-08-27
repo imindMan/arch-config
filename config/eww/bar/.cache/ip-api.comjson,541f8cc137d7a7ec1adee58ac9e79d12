@@ -1,0 +1,10 @@
+status: 200
+date: Sat, 20 May 2023 07:38:06 GMT
+content-type: application/json; charset=utf-8
+content-length: 306
+access-control-allow-origin: *
+x-ttl: 60
+x-rl: 44
+content-location: http://ip-api.com/json/
+
+{"status":"success","country":"Vietnam","countryCode":"VN","region":"SG","regionName":"Ho Chi Minh","city":"Ho Chi Minh City","zip":"","lat":10.822,"lon":106.6257,"timezone":"Asia/Ho_Chi_Minh","isp":"sctvqGVP","org":"HTC ITC","as":"AS45543 SaiGon Tourist cable Televition Company","query":"112.197.33.211"}

@@ -6,18 +6,18 @@
 (defvar eww "eww -c ~/.config/eww/bar/") ;; main and important eww variable, for commands purpose
 
 (deflisten workspace "scripts/workspace") ;; update the information in the workspace widget
-(defpoll wifi_interface  :interval "2s" "~/.config/eww/bar/scripts/wifi --INTERFACE") ; Wifi interface (e.g enp0s3)
-(defpoll wifi_icon :interval "2s" "~/.config/eww/bar/scripts/wifi --ICON" ) ; Wifi icon 
-(defpoll wifi_color :interval "2s""~/.config/eww/bar/scripts/wifi --COLOR" ) ; Wifi color
-(defpoll volume_percent :interval "3s" "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'") ; Volume (pulseaudio)
-(defpoll vol_icon :interval "3s" "~/.config/eww/bar/scripts/volume --ICON") ; Volume icon 
-(defpoll vol_color :interval "3s" "~/.config/eww/bar/scripts/volume --COLOR") ; Volume color 
-(defpoll mem_free :interval "3s" "free -m | grep Mem | awk '{print ($4)}'") ; How much are the free RAM?
-(defpoll time :interval "350ms" "date +%H:%M") ; Time, e.g 08:12
+(defpoll wifi_interface  :interval "5s" "~/.config/eww/bar/scripts/wifi --INTERFACE") ; Wifi interface (e.g enp0s3)
+(defpoll wifi_icon :interval "5s" "~/.config/eww/bar/scripts/wifi --ICON" ) ; Wifi icon 
+(defpoll wifi_color :interval "5s""~/.config/eww/bar/scripts/wifi --COLOR" ) ; Wifi color
+(defpoll volume_percent :interval "5s" "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'") ; Volume (pulseaudio)
+(defpoll vol_icon :interval "5s" "~/.config/eww/bar/scripts/volume --ICON") ; Volume icon 
+(defpoll vol_color :interval "5s" "~/.config/eww/bar/scripts/volume --COLOR") ; Volume color 
+(defpoll mem_free :interval "5s" "free -m | grep Mem | awk '{print ($4)}'") ; How much are the free RAM?
+(defpoll time :interval "5s" "date +%H:%M") ; Time, e.g 08:12
 (defpoll calendar_day :interval "20h" "date '+%d'") ; calendar current day 
 (defpoll calendar_year :interval "20h" "date '+%Y'") ; calendar current year 
 (defpoll temperature :interval "1m" "scripts/weather") ; Current temperature 
-(defvar status " ") ; Current user's status 
+(defvar status "") ; Current user's status 
 
 ; Those variables are just basically keep track of the revealer widget
 (defvar wifi_rev false)
@@ -26,23 +26,10 @@
 (defvar time_rev false)
 (defvar temp_rev false)
 
-;; BAR: WINDOW, MAIN PART TO LAUNCH EVERYTHING
-(defwindow bar 
-        :monitor 0        
-        :geometry (geometry :width "98%"
-                            :height "3%"
-                            :anchor "top center")
-        :stacking "fg"
-        :reserve (struts :distance "40px" :side "top")
-        :windowtype "dock"
-        :wm-ignore false 
-(bar))
-
-
 ;; Windows for "interactive experiences"  purpose
 (defwindow calendar
 	:geometry (geometry :x "-20px" 
-						:y "4%" 
+						:y "7%" 
                         :anchor "top right"
 						:width "270px" 
 						:height "60px")
@@ -57,7 +44,7 @@
 
 (defwindow information
   :geometry (geometry :x "20px"
-                      :y "4%"
+                      :y "7%"
                       :anchor "top left"
                       :width "270px"
                       :height "150px"
@@ -67,14 +54,13 @@
 (defwidget main_info []
 
   (box :orientation "vertical" :class "information"
-       (label :text " " :class "logo" )
-
+      (label :text " " :class "logo" )
       (label :text "Nothing special - imindMan" :class "bio" 
 )))
 
 (defwindow status_win 
   :geometry (geometry :x "40px"
-                      :y "4%"
+                      :y "7%"
                       :anchor "top left"
                       :width "100px"
                       :height "50px"
@@ -89,8 +75,8 @@
     (button :onclick "${eww} update status= " " "))
 )
 (defwindow power 
-  :geometry (geometry :x "-10px"
-                      :y "4%"
+  :geometry (geometry :x "-2%"
+                      :y "7%"
                       :anchor "top right"
                       :width "100px"
                       :height "50px")
@@ -99,24 +85,26 @@
   (box :orientation "h" :space-evenly false :class "status_win" 
        (button :class "logout" :onclick "bspc quit" "󰍃 ")
        (button :class "reboot" :onclick "reboot" " ")
-       (button :class "lock"   :onclick "betterlockscreen -l dimblur" " ")
+       (button :class "lock"   :onclick "~/.config/bspwm/bspwmlock" " ")
        (button :class "shutdown" :onclick "shutdown now" " " ))
 
 )
 
 
 ;; Bar widget - the real content of the bar 
-(defwidget bar []
-  (box :class "bar" :orientation "horizontal"
-       (left)
-       (center)
-       (right)
-        )
-  )
 
 ; Some content of that bar 
-(defwidget left []
-  (box :orientation "h" :space-evenly false 
+(defwindow left 
+        :monitor 0        
+        :geometry (geometry :x "2%"
+                            :y "1%"
+                            :width "10%"
+                            :height "5%"
+                            :anchor "top left")
+        :stacking "fg"
+        :reserve (struts :distance "50px" :side "top")
+        :windowtype "dock"
+        :wm-ignore false   (box :orientation "h" :space-evenly false 
        :halign "left" :spacing 10
   
     (distro)
@@ -125,7 +113,14 @@
     (temperature)
     ))
 
-(defwidget center [] 
+(defwindow center 
+    :monitor 0
+    :geometry (
+                geometry :x "45%"
+                         :y  "1%"
+                         :width "10%"
+                         :height "5%"
+               )
    (box :orientation "h" :space-evenly false
         :halign "center"
         :class "center"
@@ -133,8 +128,14 @@
         ) 
   )
 
-(defwidget right []
-    (box :orientation "h" :space-evenly false :spacing 10 :halign "end"
+(defwindow right 
+  :monitor 0 
+  :geometry (geometry :x "-2%"
+                      :y "1%"
+                      :width "15%"
+                      :height "5%"
+                      :anchor "top right")
+    (box :orientation "h" :space-evenly false :spacing 10 
     (wifi)
     (volume)
     (memory)
@@ -146,57 +147,65 @@
 ; Workspace
 (defwidget workspaces []
   (box :orientation "h" :space-evenly false 
-     
+      :style "padding-right: 5px;" 
        (literal :content workspace))
 )
+
+(defwindow wifi 
+  :geometry (geometry :x "-165px"
+                      :y "7%"
+                      :anchor "top right"
+                      :width "100px"
+                      :height "50px")
+      (label :text wifi_interface :style "color: ${wifi_color};") 
+  )
+
 (defwidget wifi [] 
   (eventbox 
-            :onhover "${eww} update wifi_rev=true"
-            :onhoverlost "${eww} update wifi_rev=false"
+            :onhover "${eww} open wifi"
+            :onhoverlost "${eww} close wifi"
   (box :orientation "h" :space-evenly false :spacing 10 :class "wifi" 
-      (button :style "color: ${wifi_color}" wifi_icon)
-    (revealer :transition "slideleft" 
-              :reveal wifi_rev
-              :duration "350ms"
-     (label :text wifi_interface :style "color: ${wifi_color};"))
-      
+      (button :style "color: ${wifi_color}" wifi_icon)      
     )
   )
 )
 
 ;; Volume
+(defwindow volume  
+  :geometry (geometry :x "-135px"
+                       :y "7%"
+                       :anchor "top right"
+                       :width "100px"
+                       :height "50px")
+    (label :text volume_percent :style "color: ${vol_color}")
+   ) 
 (defwidget volume []  
   (eventbox 
-            :onhover "${eww} update vol_rev=true"
-            :onhoverlost "${eww} update vol_rev=false"
-  (box :orientation "h" :space-evenly false :spacing 10
-      (button :style "color: ${vol_color}" vol_icon )
-    (revealer :transition "slideleft" 
-              :reveal vol_rev 
-              :duration "350ms"
-              :style "color: ${vol_color}" 
-      volume_percent
-    )
+            :onhover "${eww} open volume"
+            :onhoverlost "${eww} close volume"
+   (box :orientation "h" :space-evenly false :spacing 10 :class "volume"
+       (button :style "color: ${vol_color}" vol_icon )
    ) 
   )
 )
 
 
 ; Memory
+(defwindow memory 
+  :geometry (geometry :x "-95px"
+                      :y "7%"
+                      :anchor "top right"
+                      :width "150px"
+                      :height "50px")
+      
+   (label :text  "${round(mem_free / 1000, 2)} GB free" :style "color: #e0af68;" 
+               :class "mem_win"))
 (defwidget memory []
   (eventbox 
-            :onhover "${eww} update mem_rev=true"
-            :onhoverlost "${eww} update mem_rev=false"
+            :onhover "${eww} open memory" 
+            :onhoverlost "${eww} close memory"
   (box :orientation "h" :space-evenly false :spacing 10
-      (button  :class "mem" "󰍛 ") 
-    (revealer :transition "slideleft" 
-              :reveal mem_rev 
-              :duration "350ms"
-              :style "color: #e0af68;" 
-               :class "temperature"
-      "${round(mem_free / 1000, 2)} GB free"
-    )
-       )
+      (button  :class "mem" "󰍛 ") )
   )
   ) 
 
@@ -204,16 +213,11 @@
 ; Time
 (defwidget clock [] 
   (eventbox 
-            :onhover "${eww} update time_rev=true"
-            :onhoverlost "${eww} update time_rev=false"
+            :onhover "${eww} open calendar"
+            :onhoverlost "${eww} close calendar" 
   (box :orientation "h" :space-evenly false :spacing 10 :class "time"
        time
-          (revealer :transition "slideleft" 
-              :reveal time_rev 
-              :duration "350ms"
-               :class "time"
-            (button :onclick "${eww} open --toggle calendar" " ")
-    )
+          
        )
   ))
 
@@ -236,19 +240,22 @@
   (button :class "status" :onclick "${eww} open --toggle status_win" status))
 
 ; temperature 
+(defwindow temperature  
+  :geometry (geometry :x "100px"
+                      :y "7%"
+                      :anchor "top left"
+                      :width "100px"
+                      :height "50px")
+  (label :text "${temperature} 󰔄 " :class "temperature")
+)
 (defwidget temperature []
   (eventbox 
-            :onhover "${eww} update temp_rev=true"
-            :onhoverlost "${eww} update temp_rev=false"
-  (box :orientation "h" :space-evenly false :spacing 10 :class "temperature"
+            :onhover "${eww} open --toggle temperature"
+            :onhoverlost "${eww} close temperature"
+  (box :orientation "h" :space-evenly false :spacing 10 :class "temp"
         "   " 
-          (revealer :transition "slideright" 
-              :reveal temp_rev 
-              :duration "350ms"
-         "${temperature} 󰔄 " 
-               )
+          )
        )
-  )
   )
 
 ; Powermenu - power up/down your machine

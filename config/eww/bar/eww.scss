@@ -24,14 +24,20 @@ $dark: #33467c;
 .works {
 	font-size: 23px;
 	color: $black;
-	padding: 3px 3px 2px 16px; 
+	padding: 9px 4px 2px 5px; 
 }
 
 .uof, .uf {
 	color: $blue;
 }
+.wifi {
+	padding-right: 10px;
+	padding-left: 20px;
+}
 
-
+.volume {
+	padding-right: 10px;
+}
 
 .interface {
 	color: $cyan;
@@ -44,6 +50,7 @@ $dark: #33467c;
 
 .time {
 	color: $cyan;
+	padding-right: 10px;
 }
 
 .distro {
@@ -53,10 +60,17 @@ $dark: #33467c;
 .info {
 	color: $cyan;
 }
+.mem_win {
+	color: $yellow;
+	padding: 5px 13px 5px 17px;
+}
+.temp {
+	padding-left: 10px;
+	color: $yellow;
+}
 .temperature {
 	color: $yellow;
 	padding-left: 10px;
-
 }
 
 .logo {
@@ -66,6 +80,7 @@ $dark: #33467c;
 }
 
 .powermenu {
+	padding-right: 5px;
 	color: $red;
 }
 
