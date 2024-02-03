@@ -56,8 +56,8 @@ cmp.setup({
 			scrollbar = "║",
 		},
 		documentation = { -- no border; native-style scrollbar
-			border = nil,
-			scrollbar = "",
+			border = "rounded",
+			scrollbar = "║",
 			-- other options
 		},
 	},

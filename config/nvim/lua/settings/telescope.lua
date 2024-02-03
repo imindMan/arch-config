@@ -16,9 +16,3 @@ require("telescope").setup({
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
 require("telescope").load_extension("file_browser")
-
--- settings keymaps
-
-vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<space>ff", ":Telescope find_files<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<space>of", ":Telescope oldfiles<CR>", { noremap = true })

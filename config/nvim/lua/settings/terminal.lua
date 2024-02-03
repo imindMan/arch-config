@@ -9,6 +9,3 @@ require("toggleterm").setup({
 		},
 	},
 })
-
--- key bindings
-vim.api.nvim_set_keymap("n", "<leader>te", ":ToggleTerm direction=float<CR>", { noremap = true })

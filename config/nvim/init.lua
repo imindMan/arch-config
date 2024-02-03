@@ -1,4 +1,6 @@
 -- First general setup
+vim.opt.termguicolors = true
+vim.o.background = "dark"
 vim.g.mapleader = "\\"
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -12,6 +14,8 @@ vim.api.nvim_command("set nobackup")
 vim.api.nvim_command("set nowb")
 vim.api.nvim_command("set noswapfile")
 vim.api.nvim_command("set cursorline")
+vim.api.nvim_command("set mousemoveevent")
+
 vim.cmd([[
 	let g:clipboard = {
 	\	'name': 'xclip',
@@ -26,20 +30,36 @@ vim.cmd([[
 	\ }
 
 ]])
-vim.notify = require("notify")
--- Switch to packer :((((
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+
+vim.opt.rtp:prepend(lazypath)
+
 require("plugins")
-vim.opt.termguicolors = true
+
 vim.cmd([[ colorscheme tokyonight-night]])
+vim.notify = require("notify")
 -- Call all the settings from the lua/ directory
-require("settings/nvimtree")
-require("settings/telescope")
-require("settings/lualine")
-require("settings/tabline")
-require("settings/cmp")
-require("settings/mason")
-require("settings/lspsaga")
-require("settings/lspconfig")
-require("settings/null-ls")
-require("settings/treesitter")
-require("settings/nvim-dap")
+require("settings.nvimtree")
+require("settings.telescope")
+require("settings.lualine")
+require("settings.bufferline")
+require("settings.cmp")
+require("settings.mason")
+require("settings.lspsaga")
+require("settings.lspconfig")
+require("settings.nvim-lint")
+require("settings.treesitter")
+require("settings.nvim-dap")
+require("settings.noice")
+require("mappings")

@@ -9,7 +9,6 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	view = {
 		centralize_selection = false,
-		hide_root_folder = false,
 		side = "left",
 		float = {
 			enable = true,
@@ -42,4 +41,3 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 	},
 }) -- END_DEFAULT_OPTS
 -- keymap
-vim.api.nvim_set_keymap("n", "<leader>fb", ":NvimTreeToggle<CR>", { noremap = true })
