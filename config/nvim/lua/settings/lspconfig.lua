@@ -87,7 +87,7 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
-
-lspconfig["nim_langserver"].setup({
+-- manually install nimlsp
+lspconfig["nimls"].setup({
 	capabilities = capabilities,
 })

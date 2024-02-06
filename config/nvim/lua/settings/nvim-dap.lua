@@ -4,7 +4,7 @@ local dap = require("dap")
 dap.adapters.codelldb = {
 	type = "server",
 	host = "127.0.0.1",
-	port = "{port}",
+	port = "${port}",
 
 	executable = {
 		command = "codelldb",

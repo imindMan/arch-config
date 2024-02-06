@@ -7,6 +7,5 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"pyright",
 		"rust_analyzer",
-		"nim_langserver",
 	},
 })

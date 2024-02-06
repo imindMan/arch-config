@@ -20,7 +20,7 @@ end, { desc = "Trigger linting for current file" })
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		markdown = { { "prettierd", "prettier" } },
+		markdown = { "prettier" },
 		rust = { "rustfmt" },
 		python = { "pyright" },
 	},
