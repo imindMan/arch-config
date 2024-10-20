@@ -42,6 +42,12 @@ elif [ $f5 ]; then
     ic_5=""
 fi
 
+echo "$un$o1$f1"
+echo "$un$o2$f2"
+echo "$un$o3$f3"
+echo "$un$o4$f4"
+echo "$un$o5$f5"
+   
 echo 	"(box	:class \"works\"	:orientation \"h\" :spacing 10 :space-evenly \"false\" (button :onclick \"bspc desktop -f $ws1\"	:class	\"$un$o1$f1\"	\"$ic_1\") (button :onclick \"bspc desktop -f $ws2\"	:class \"$un$o2$f2\"	 \"$ic_2\") (button :onclick \"bspc desktop -f $ws3\"	:class \"$un$o3$f3\" \"$ic_3\") (button :onclick \"bspc desktop -f $ws4\"	:class \"$un$o4$f4\"	\"$ic_4\") (button :onclick \"bspc desktop -f $ws5\"	:class \"$un$o5$f5\" \"$ic_5\") )"
 
 }

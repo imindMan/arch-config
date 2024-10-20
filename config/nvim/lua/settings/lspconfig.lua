@@ -23,16 +23,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		local lsp = vim.lsp
 
-		-- Lenses
-		if client and client.supports_method(lsp.protocol.Methods.textDocument_codeLens) then
-			vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-				buffer = ev.buf,
-				group = vim.api.nvim_create_augroup("codelens", { clear = false }),
-				callback = function()
-					lsp.codelens.refresh()
-				end,
-			})
-		end
 		local opts = { noremap = true, silent = true }
 		-- set keybinds
 		keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
@@ -68,26 +58,25 @@ lspconfig["pyright"].setup({
 	capabilities = capabilities,
 })
 
--- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
-	settings = { -- custom settings for lua
-		Lua = {
-			-- make the language server recognize "vim" global
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				-- make language server aware of runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
-				},
-			},
-		},
-	},
 })
 -- manually install nimlsp
 lspconfig["nimls"].setup({
 	capabilities = capabilities,
+})
+
+lspconfig["eslint"].setup({
+	capabilities = capabilities,
+})
+
+lspconfig["crystalline"].setup({
+	capabilities = capabilities,
+})
+
+lspconfig["zls"].setup({
+	on_attach = function(client, bufnr)
+		client.server_capabilities.documentFormattingProvider = false -- disable zig fmt
+		-- other LSP setup
+	end,
 })

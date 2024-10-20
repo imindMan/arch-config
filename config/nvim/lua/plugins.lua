@@ -18,7 +18,6 @@ return require("lazy").setup({
 			end,
 		},
 	},
-
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -81,15 +80,6 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	config = function()
-	-- 		require("notify").setup({
-	-- 			stages = "fade",
-	-- 		})
-	-- 	end,
-	-- },
-
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -114,24 +104,21 @@ return require("lazy").setup({
 		event = "InsertEnter",
 		opts = {}, -- this is equalent to setup({}) function
 	},
-	{ "HiPhish/rainbow-delimiters.nvim" },
+	--	{ "HiPhish/rainbow-delimiters.nvim" },
 	-- lazy.nvim
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
 		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
+			-- -- OPTIONAL:
+			-- --   `nvim-notify` is only needed, if you want to use the notification view.
+			-- --   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
 	},
-
+	{ "echasnovski/mini.nvim", version = false },
 	-- debugger stuff
 	{
 		"mrcjkb/rustaceanvim",
@@ -141,13 +128,10 @@ return require("lazy").setup({
 	{ "mfussenegger/nvim-dap" },
 	{
 		"rcarriga/nvim-dap-ui",
-		dependencies = "mfussenegger/nvim-dap",
+		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			require("dapui").setup()
 		end,
-	},
-	{
-		"folke/trouble.nvim",
 	},
 
 	{
@@ -231,5 +215,22 @@ return require("lazy").setup({
 		build = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+	},
+	{
+		"OXY2DEV/markview.nvim",
+		ft = "markdown",
+
+		dependencies = {
+			-- You may not need this if you don't lazy load
+			-- Or if the parsers are in your $RUNTIMEPATH
+			"nvim-treesitter/nvim-treesitter",
+
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	{
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
 	},
 })

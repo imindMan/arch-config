@@ -1,5 +1,0 @@
-#!/bin/bash 
-
-temperature=$(weather-report vvts | grep "Temperature" | awk '{print ($4);}')
-
-echo "${temperature:1}"

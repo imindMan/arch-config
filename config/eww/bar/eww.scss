@@ -29,7 +29,21 @@ $dark: #33467c;
 
 .uof, .uf {
 	color: $blue;
+    margin-right: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
+.uo {
+    margin-right: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.u {
+    padding-left: 3px;
+    margin-right: 1px;
+    padding-right: 3px;
+}
+
 .wifi {
 	padding-right: 10px;
 	padding-left: 20px;

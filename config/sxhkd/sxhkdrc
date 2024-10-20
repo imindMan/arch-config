@@ -75,3 +75,4 @@ F11
 super + shift + F11
 	bspc node --flag hidden=on
 
+

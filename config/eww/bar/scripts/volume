@@ -1,14 +1,15 @@
 #!/bin/sh  
 
-vol=$(($(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%')))
+vol=$(pactl list sinks | grep '^[[:space:]]Volume:' | \
+    head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
 
 if (( vol == 0 )); then
 	icon="󰝟  "
 	color="#f7768e"
-elif (( vol < 50 )); then
+elif (( vol < 52 )); then
 	icon="󰖀  "
 	color="#e0af68"
-elif (( vol > 50 && vol < 100 )); then 
+elif (( vol > 51 && vol < 101 )); then 
 	icon="󰕾  "
 	color="#9ece6a"
 else
@@ -22,4 +23,6 @@ if [[ "$1" == "--ICON" ]]; then
 	echo $icon 
 elif [[ "$1" == "--COLOR" ]]; then
 	echo $color 
+elif [[ "$1" == "--VOLUME" ]]; then
+    echo $vol
 fi

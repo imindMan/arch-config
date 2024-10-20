@@ -2,10 +2,9 @@
 vim.opt.termguicolors = true
 vim.o.background = "dark"
 vim.g.mapleader = "\\"
+vim.g.zig_fmt_autosave = 0
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.switchbuf = "usetab"
-vim.opt.mouse = "a"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -50,14 +49,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("plugins")
-
 vim.cmd([[ colorscheme tokyonight-night]])
-vim.notify = require("notify")
 -- Call all the settings from the lua/ directory
 require("settings.nvimtree")
 require("settings.telescope")
-require("settings.lualine")
 require("settings.bufferline")
+require("settings.lualine")
 require("settings.cmp")
 require("settings.mason")
 require("settings.lspsaga")
@@ -65,5 +62,5 @@ require("settings.lspconfig")
 require("settings.nvim-lint")
 require("settings.nvim-dap")
 require("settings.treesitter")
-require("settings.noice")
 require("mappings")
+require("settings.noice")

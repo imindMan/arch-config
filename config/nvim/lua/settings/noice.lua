@@ -18,8 +18,26 @@ noice.setup({
 	},
 	routes = {
 		{
-			view = "notify",
-			filter = { event = "msg_showmode" },
+			filter = {
+				event = "msg_show",
+				kind = "",
+				find = "written",
+			},
+			opts = { skip = true },
+		},
+		{
+			filter = {
+				event = "notify",
+				find = "Debug adapter",
+			},
+			opts = { skip = true },
+		},
+		{
+			filter = {
+				event = "notify",
+				find = "Invalid offset",
+			},
+			opts = { skip = true },
 		},
 	},
 })

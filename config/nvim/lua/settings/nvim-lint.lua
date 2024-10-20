@@ -1,5 +1,4 @@
 require("lint").linters_by_ft = {
-	javascript = { "eslint_d" },
 	lua = { "luacheck" },
 	python = { "pylint" },
 }
@@ -19,6 +18,7 @@ end, { desc = "Trigger linting for current file" })
 
 require("conform").setup({
 	formatters_by_ft = {
+		crystal = { "crystal" },
 		lua = { "stylua" },
 		markdown = { "prettier" },
 		rust = { "rustfmt" },

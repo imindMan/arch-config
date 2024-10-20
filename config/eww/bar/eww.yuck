@@ -9,7 +9,7 @@
 (defpoll wifi_interface  :interval "5s" "~/.config/eww/bar/scripts/wifi --INTERFACE") ; Wifi interface (e.g enp0s3)
 (defpoll wifi_icon :interval "5s" "~/.config/eww/bar/scripts/wifi --ICON" ) ; Wifi icon 
 (defpoll wifi_color :interval "5s""~/.config/eww/bar/scripts/wifi --COLOR" ) ; Wifi color
-(defpoll volume_percent :interval "5s" "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }'") ; Volume (pulseaudio)
+(defpoll volume_percent :interval "5s" "~/.config/eww/bar/scripts/volume --VOLUME") ; Volume (pulseaudio)
 (defpoll vol_icon :interval "5s" "~/.config/eww/bar/scripts/volume --ICON") ; Volume icon 
 (defpoll vol_color :interval "5s" "~/.config/eww/bar/scripts/volume --COLOR") ; Volume color 
 (defpoll mem_free :interval "5s" "free -m | grep Mem | awk '{print ($4)}'") ; How much are the free RAM?
@@ -17,7 +17,6 @@
 (defpoll calendar_day :interval "20h" "date '+%d'") ; calendar current day 
 (defpoll calendar_year :interval "20h" "date '+%Y'") ; calendar current year 
 (defpoll temperature :interval "1m" "scripts/weather") ; Current temperature 
-(defvar status "") ; Current user's status 
 
 ; Those variables are just basically keep track of the revealer widget
 (defvar wifi_rev false)
@@ -26,101 +25,19 @@
 (defvar time_rev false)
 (defvar temp_rev false)
 
-;; Windows for "interactive experiences"  purpose
-(defwindow calendar
-	:geometry (geometry :x "-20px" 
-						:y "7%" 
-                        :anchor "top right"
-						:width "270px" 
-						:height "60px")
-(cal))
-
-(defwidget cal []
-	(box :class "cal" :orientation "v"
-	(box :class "cal-in"
-	(calendar :class "cal" 
-			  :day calendar_day 
-			  :year calendar_year))))
-
-(defwindow information
-  :geometry (geometry :x "20px"
-                      :y "7%"
-                      :anchor "top left"
-                      :width "270px"
-                      :height "150px"
-            )
-  (main_info))
-
-(defwidget main_info []
-
-  (box :orientation "vertical" :class "information"
-      (label :text " " :class "logo" )
-      (label :text "Nothing special - imindMan" :class "bio" 
-)))
-
-(defwindow status_win 
-  :geometry (geometry :x "40px"
-                      :y "7%"
-                      :anchor "top left"
-                      :width "100px"
-                      :height "50px"
-    )
-  (change_status))
-(defwidget change_status []
-  (box :orientation "h" :space-evenly false
-       :class "status_win"
-    (button :onclick "${eww} update status= " " ")
-    (button :onclick "${eww} update status=󰌢 " "󰌢 ")
-    (button :onclick "${eww} update status= " " ")
-    (button :onclick "${eww} update status= " " "))
-)
-(defwindow power 
-  :geometry (geometry :x "-2%"
-                      :y "7%"
-                      :anchor "top right"
-                      :width "100px"
-                      :height "50px")
-  (main_powermenu))
-(defwidget main_powermenu []
-  (box :orientation "h" :space-evenly false :class "status_win" 
-       (button :class "logout" :onclick "bspc quit" "󰍃 ")
-       (button :class "reboot" :onclick "reboot" " ")
-       (button :class "lock"   :onclick "~/.config/bspwm/bspwmlock" " ")
-       (button :class "shutdown" :onclick "shutdown now" " " ))
-
-)
-
-
-;; Bar widget - the real content of the bar 
-
-; Some content of that bar 
-(defwindow left 
-        :monitor 0        
-        :geometry (geometry :x "2%"
-                            :y "1%"
-                            :width "10%"
-                            :height "5%"
-                            :anchor "top left")
-        :stacking "fg"
-        :reserve (struts :distance "50px" :side "top")
-        :windowtype "dock"
-        :wm-ignore false   (box :orientation "h" :space-evenly false 
-       :halign "left" :spacing 10
-  
-    (distro)
-    (info)
-    (status)
-    (temperature)
-    ))
-
-(defwindow center 
+(defwindow left
     :monitor 0
     :geometry (
-                geometry :x "45%"
+                geometry :x "2%"
                          :y  "1%"
-                         :width "10%"
+                         :width "12%"
                          :height "5%"
+                         :anchor "top left"
                )
+    :stacking "fg"
+    :reserve (struts :distance "50px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
    (box :orientation "h" :space-evenly false
         :halign "center"
         :class "center"
@@ -208,7 +125,20 @@
       (button  :class "mem" "󰍛 ") )
   )
   ) 
+(defwindow calendar
+	:geometry (geometry :x "-20px" 
+						:y "7%" 
+                        :anchor "top right"
+						:width "270px" 
+						:height "60px")
+(cal))
 
+(defwidget cal []
+	(box :class "cal" :orientation "v"
+	(box :class "cal-in"
+	(calendar :class "cal" 
+			  :day calendar_day 
+			  :year calendar_year))))
 
 ; Time
 (defwidget clock [] 
@@ -221,42 +151,20 @@
        )
   ))
 
-;; FOR LEFT BAR 
-; Distro 
-(defwidget distro []
-  (label :class "distro" :text " ")
-  )
-
-; Information 
-(defwidget info []
-
-  (button :class "info" :onclick "${eww} open --toggle information" "󰋼 ")
-
-  )
-
-; Status: current user's status
-(defwidget status []
-
-  (button :class "status" :onclick "${eww} open --toggle status_win" status))
-
-; temperature 
-(defwindow temperature  
-  :geometry (geometry :x "100px"
+(defwindow power 
+  :geometry (geometry :x "-2%"
                       :y "7%"
-                      :anchor "top left"
+                      :anchor "top right"
                       :width "100px"
                       :height "50px")
-  (label :text "${temperature} 󰔄 " :class "temperature")
+  (main_powermenu))
+(defwidget main_powermenu []
+  (box :orientation "h" :space-evenly false :class "status_win" 
+       (button :class "logout" :onclick "bspc quit" "󰍃 ")
+       (button :class "reboot" :onclick "reboot" " ")
+       (button :class "lock"   :onclick "~/.config/bspwm/bspwmlock" " ")
+       (button :class "shutdown" :onclick "shutdown now" " " ))
 )
-(defwidget temperature []
-  (eventbox 
-            :onhover "${eww} open --toggle temperature"
-            :onhoverlost "${eww} close temperature"
-  (box :orientation "h" :space-evenly false :spacing 10 :class "temp"
-        "   " 
-          )
-       )
-  )
 
 ; Powermenu - power up/down your machine
 (defwidget powermenu []
