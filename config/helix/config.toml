@@ -1,0 +1,44 @@
+theme = "tokyonight"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor]
+line-number = "relative"
+true-color = true
+shell = ["fish"]
+bufferline = "multiple"
+cursorline = true
+
+end-of-line-diagnostics = "hint"
+# rulers = [120]
+ 
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "version-control", "position", "position-percentage", "file-type"]
+mode.normal = "nor"
+mode.insert = "ins"
+mode.select = "vis"
+
+[editor.inline-diagnostics]
+cursor-line = "error" # Show inline diagnostics when the cursor is on the line
+other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line
+
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.whitespace.render]
+tab = "all"
+
+[editor.whitespace.characters]
+tab = "→"
+tabpad = "·"
+
+[editor.smart-tab]
+enable = true
